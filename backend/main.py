@@ -6,7 +6,6 @@ from routes import (
     auth_routes,
     user_routes,
     project_routes,
-    matcher_routes,
     team_routes,
     team_chat_routes,
     skill_routes,
@@ -49,7 +48,6 @@ app.add_middleware(
 app.include_router(auth_routes.router, prefix="/api/auth")
 app.include_router(user_routes.router, prefix="/api/users")
 app.include_router(project_routes.router, prefix="/api/projects")
-app.include_router(matcher_routes.router, prefix="/api/matcher")
 app.include_router(team_routes.router, prefix="/api/team")
 app.include_router(skill_routes.router, prefix="/api/skills")
 app.include_router(dashboard_routes.router, prefix="/api/dashboard")
