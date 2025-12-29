@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
 from routes.user_routes import get_current_user
-from routes.logger import log_activity   
 from datetime import date, datetime
 import random
 from database import roles_collection  
@@ -101,12 +100,6 @@ async def start_role(role: str, user=Depends(get_current_user)):
 
     await roles_collection.insert_one(task_doc)
 
-    # 🔥 ACTIVITY LOG
-    await log_activity(
-        ObjectId(user["_id"]),
-        f"Started role simulator task as {role}"
-    )
-
     return task
 
 @router.get("/today-task")
@@ -149,10 +142,6 @@ async def evaluate(payload: dict, user=Depends(get_current_user)):
         }
     )
 
-    # 🔥 ACTIVITY LOG
-    await log_activity(
-        user_id,
-        f"Completed role simulator evaluation for {role} — Score: {result['final_score']}"
-    )
+
 
     return result

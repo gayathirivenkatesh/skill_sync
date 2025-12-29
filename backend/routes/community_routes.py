@@ -14,13 +14,7 @@ from routes.user_routes import get_current_user
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
-HF_API_KEY = os.getenv("HF_API_KEY")
-HF_MODEL = "HuggingFaceH4/zephyr-7b-beta"
-HF_URL = f"https://api-inference.huggingface.co/models/{HF_MODEL}"
-HF_HEADERS = {
-    "Authorization": f"Bearer {HF_API_KEY}",
-    "Content-Type": "application/json"
-}
+
 router = APIRouter(prefix="/api/community", tags=["Community AI"])
 
 # ---------------- AI HELPERS ----------------
@@ -242,13 +236,11 @@ Post:
 {content}
 """
 
-    # -------- SAFE DEFAULT (NEVER FAILS) --------
     fallback_reply = (
         "This is an interesting point. I’d approach it step by step and would "
         "love to hear how others have handled similar situations."
     )
 
-    # -------- TRY GEMINI --------
     try:
         response = model.generate_content(prompt)
 
@@ -260,31 +252,4 @@ Post:
     except Exception as e:
         print("Gemini failed:", e)
 
-    # -------- FALLBACK: HUGGING FACE --------
-    try:
-        hf_response = requests.post(
-            HF_URL,
-            headers=HF_HEADERS,
-            json={
-                "inputs": prompt,
-                "parameters": {
-                    "max_new_tokens": 120,
-                    "temperature": 0.7
-                }
-            },
-            timeout=20
-        )
-
-        hf_response.raise_for_status()
-        result = hf_response.json()
-
-        if isinstance(result, list) and "generated_text" in result[0]:
-            text = result[0]["generated_text"].replace(prompt, "").strip()
-            if text:
-                return {"suggested_reply": text}
-
-    except Exception as e:
-        print("Hugging Face failed:", e)
-
-    # -------- FINAL GUARANTEED RESPONSE --------
     return {"suggested_reply": fallback_reply}
