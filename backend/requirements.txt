@@ -26,5 +26,5 @@ requests==2.31.0
 google-generativeai==0.5.4
 
 # ---------------- Time ----------------
-pytz
-tzdata
+pytz==2025.7
+tzdata==2025.1
