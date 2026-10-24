@@ -1,8 +1,5 @@
 # AI-Based Student Skill & Mentorship Platform
 
-## Changelog
-
-- Fixed duplicate layout issue across all pages by adjusting routing.
 
 ## Overview
 
