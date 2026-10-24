@@ -3,7 +3,7 @@ import axios from "axios";
 import { FiBell, FiPlus, FiMessageCircle, FiTrash2 } from "react-icons/fi";
 
 
-const API = "http://localhost:8000/api/mentor/announcements";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)mentor/announcements";
 
 const MentorAnnouncements = () => {
   const token = localStorage.getItem("token");

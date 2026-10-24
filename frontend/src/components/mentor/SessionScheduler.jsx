@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API = "http://localhost:8000/api";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 const SessionScheduler = ({ teamId, token, onClose, onScheduled }) => {
   const [datetime, setDatetime] = useState("");

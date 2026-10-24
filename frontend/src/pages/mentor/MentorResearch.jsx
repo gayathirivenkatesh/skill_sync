@@ -3,7 +3,7 @@ import axios from "axios";
 import { FiPlus, FiBookOpen, FiTrash2 } from "react-icons/fi";
 
 
-const API = "http://localhost:8000/api/mentor/research";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)mentor/research";
 
 const MentorResearch = () => {
   const token = localStorage.getItem("token");

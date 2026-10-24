@@ -29,13 +29,13 @@ export default function AiLearningSession() {
   const [messages, setMessages] = useState([]);
 
   const token = localStorage.getItem("token");
-  const API_BASE = "http://localhost:8000";
+  const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
   // ---------- Check for existing session ----------
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const res = await axios.get(`${API_BASE}/api/ai/status`, {
+        const res = await axios.get(`${API_BASE}/ai/status`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data.session_id) {
@@ -97,7 +97,7 @@ export default function AiLearningSession() {
     if (!session?.session_id) return;
     try {
       // fetch last messages or question
-      const res = await axios.get(`${API_BASE}/api/ai/status`, {
+      const res = await axios.get(`${API_BASE}/ai/status`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessages(res.data.messages || []);

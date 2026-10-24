@@ -4,7 +4,7 @@ import { FiUsers, FiPlus, FiMessageCircle, FiTrash2 } from "react-icons/fi";
 
 import { format } from "date-fns";
 
-const API = "http://localhost:8000/api/mentor/collaboration";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)mentor/collaboration";
 
 const MentorCollaboration = () => {
   const token = localStorage.getItem("token");

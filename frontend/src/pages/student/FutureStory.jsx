@@ -3,7 +3,7 @@ import axios from "axios";
 import { FiPlay, FiRefreshCw } from "react-icons/fi";
 
 
-const API = "http://localhost:8000/api";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`) ";
 
 const FutureStory = () => {
   const token = localStorage.getItem("token");

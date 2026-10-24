@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
-const API = "http://localhost:8000/api";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 const MentorActionPanel = ({ teamId }) => {
   const { token } = useContext(AuthContext);

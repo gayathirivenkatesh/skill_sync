@@ -1,14 +1,24 @@
-// chatApi.js
+
+const API_BASE_URL = (
+  import.meta.env.VITE_API_URL || "http://localhost:8000"
+).replace(/\/+$/, "");
+
+const WS_BASE_URL = API_BASE_URL.replace(/^https:/, "wss:").replace(
+  /^http:/,
+  "ws:"
+);
 
 // Connect to WebSocket for a given team
 export const connectToChat = (teamId, token, onMessage) => {
   if (!teamId || !token) return null;
 
   const ws = new WebSocket(
-    `ws://localhost:8000/api/chat/ws/${teamId}?token=${token}`
+    `${WS_BASE_URL}/api/chat/ws/${encodeURIComponent(teamId)}?token=${encodeURIComponent(token)}`
   );
 
-  ws.onopen = () => console.log("WebSocket connected for team", teamId);
+  ws.onopen = () => {
+    console.log("WebSocket connected for team", teamId);
+  };
 
   ws.onmessage = (event) => {
     try {
@@ -20,7 +30,11 @@ export const connectToChat = (teamId, token, onMessage) => {
   };
 
   ws.onclose = (event) => {
-    console.log(`WebSocket disconnected for team ${teamId}`, event.code, event.reason);
+    console.log(
+      `WebSocket disconnected for team ${teamId}`,
+      event.code,
+      event.reason
+    );
   };
 
   ws.onerror = (error) => {
@@ -30,10 +44,10 @@ export const connectToChat = (teamId, token, onMessage) => {
   return ws;
 };
 
-// Send a one-off message via fetch API (optional fallback)
+// Send a one-off message via HTTP API
 export const sendMessage = async (payload, token) => {
   try {
-    const res = await fetch("http://localhost:8000/api/chat/message", {
+    const res = await fetch(`${API_BASE_URL}/api/chat/message`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +56,10 @@ export const sendMessage = async (payload, token) => {
       body: JSON.stringify(payload),
     });
 
-    if (!res.ok) throw new Error("Failed to send message");
+    if (!res.ok) {
+      throw new Error(`Failed to send chat message: HTTP ${res.status}`);
+    }
+
     return await res.json();
   } catch (err) {
     console.error("sendMessage error:", err);

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:8000/api"; // Your FastAPI backend
+const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)"; // Your FastAPI backend
 
 const axiosInstance = axios.create({
   baseURL: API_BASE,

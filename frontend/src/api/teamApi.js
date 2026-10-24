@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8000/api/teams";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)/teams";
 
 export const createTeam = async (payload) => {
   const res = await axios.post(`${API}/create`, payload);

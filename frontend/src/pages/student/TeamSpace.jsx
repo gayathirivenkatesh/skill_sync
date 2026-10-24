@@ -10,7 +10,7 @@ import PeerAppreciation from "../../components/student/PeerAppreciation";
 import PlagiarismStatus from "../../components/student/PlagiarismStatus";
 import ProjectOverview from "../../components/student/ProjectOverview";
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 /* ================= TEAM SPACE THEME ================= */
 const teamTheme = {

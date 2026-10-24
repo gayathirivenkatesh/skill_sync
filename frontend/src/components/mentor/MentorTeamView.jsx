@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 import RubricView from "../student/RubricView";
 import ProjectOverview from "../student/ProjectOverview";
 
-const API = "http://localhost:8000/api";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 const MentorTeamView = () => {
   const navigate = useNavigate();

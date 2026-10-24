@@ -11,7 +11,7 @@ const CareerPathways = () => {
 
   // Axios instance with token
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:8000/api/career-pathways",
+    baseURL: "fetch(`${import.meta.env.VITE_API_URL}/api/...`)career-pathways",
     headers: { Authorization: `Bearer ${token}` },
   });
 

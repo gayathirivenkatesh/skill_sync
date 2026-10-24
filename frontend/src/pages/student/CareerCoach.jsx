@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { Loader2, Bot, User } from "lucide-react";
 
-const API_BASE = "http://localhost:8000/api/careercoach";
+const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)careercoach";
 
 /* ================= CAREER COACH THEME =================
    Warm • Professional • Mentor-like • Student Connected

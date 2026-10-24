@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { ShieldCheck, RefreshCw } from "lucide-react";
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 const riskStyles = {
   "Low Risk": {

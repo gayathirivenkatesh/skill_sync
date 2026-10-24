@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8000/api/analytics";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)/analytics";
 
 export const getSkillDistribution = async () => {
   const res = await axios.get(`${API}/skills`);

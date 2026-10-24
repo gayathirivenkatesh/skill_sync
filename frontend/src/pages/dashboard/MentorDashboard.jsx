@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 const MentorDashboard = () => {
   const { token } = useContext(AuthContext);

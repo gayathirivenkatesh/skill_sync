@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { UploadCloud, FileText, Trash2, Lock } from "lucide-react";
 
-const API = "http://localhost:8000/api/team-files";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)/team-files";
 
 const TeamFiles = ({ teamId, isLocked, isCreator, userId, onFilesUpdate }) => {
   const { token } = useContext(AuthContext);

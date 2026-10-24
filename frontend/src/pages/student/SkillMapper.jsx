@@ -18,7 +18,7 @@ const SkillAndProjectMatcher = () => {
     try {
       setLoadingSkills(true);
       const res = await axios.post(
-        "http://localhost:8000/api/skills/extract_skills",
+        "fetch(`${import.meta.env.VITE_API_URL}/api/...`)skills/extract_skills",
         { text },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -39,7 +39,7 @@ const SkillAndProjectMatcher = () => {
       formData.append("file", file);
 
       const res = await axios.post(
-        "http://localhost:8000/api/skills/resume-parser",
+        "fetch(`${import.meta.env.VITE_API_URL}/api/...`)skills/resume-parser",
         formData,
         {
           headers: {
@@ -64,7 +64,7 @@ const SkillAndProjectMatcher = () => {
       try {
         setLoadingProjects(true);
         const res = await axios.post(
-          "http://localhost:8000/api/projects/recommendations",
+          "fetch(`${import.meta.env.VITE_API_URL}/api/...`)projects/recommendations",
           { user_skills: skills },
           { headers: { Authorization: `Bearer ${token}` } }
         );

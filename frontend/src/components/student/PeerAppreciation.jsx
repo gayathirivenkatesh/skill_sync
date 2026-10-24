@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
-const API = "http://localhost:8000/api";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 const PeerAppreciation = ({ teamId, teamMembers = [] }) => {
   const { token, user } = useContext(AuthContext);

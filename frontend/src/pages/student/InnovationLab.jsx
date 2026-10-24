@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import jsPDF from "jspdf";
 
-const API = "http://localhost:8000/api/innovation";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)innovation";
 
 const studentTheme = {
   page: "bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50",

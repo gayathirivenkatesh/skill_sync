@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 import MentorActionPanel from "../../components/mentor/MentorActionPanel";
 import SessionScheduler from "../../components/mentor/SessionScheduler";
 
-const API = "http://localhost:8000/api";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`) ";
 
 // Status styles for badges
 const statusStyles = {

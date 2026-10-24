@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const API = "http://localhost:8000/api";
+const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
 
 const MentorSessions = () => {
   const { token } = useContext(AuthContext);
