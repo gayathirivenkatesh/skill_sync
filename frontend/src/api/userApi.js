@@ -1,11 +1,10 @@
 // src/api/userApi.js
 import axios from "axios";
-
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+import { API_BASE_URL } from "./apiConfig";
 
 // Create Axios instance
 const axiosInstance = axios.create({
-  baseURL: API_BASE,
+  baseURL: `${API_BASE_URL}/api`,
 });
 
 // Attach JWT token for every request

@@ -2,8 +2,9 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { Github, Globe, Save } from "lucide-react";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+const API_BASE = `${API_BASE_URL}/api`;
 
 const Field = ({ label, children }) => (
   <div className="space-y-1">

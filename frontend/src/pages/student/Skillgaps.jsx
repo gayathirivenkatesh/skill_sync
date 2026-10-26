@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../api/apiConfig";
 
 
 /* ================= SKILL GAP THEME ================= */
@@ -32,7 +33,7 @@ const MySkillGaps = () => {
     const fetchSkillGaps = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/learning/my-skill-gaps",
+          `${API_BASE_URL}/api/learning/my-skill-gaps`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setData(res.data);

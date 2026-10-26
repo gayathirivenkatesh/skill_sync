@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FiBell, FiPlus, FiMessageCircle, FiTrash2 } from "react-icons/fi";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-
-const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)mentor/announcements";
+const API = `${API_BASE_URL}/api/mentor/announcements`;
 
 const MentorAnnouncements = () => {
   const token = localStorage.getItem("token");

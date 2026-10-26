@@ -5,8 +5,9 @@ import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+const API = `${API_BASE_URL}/api`;
 
 const MentorSessions = () => {
   const { token } = useContext(AuthContext);

@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_BASE_URL } from "./apiConfig";
 
-const API_URL = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)/auth";
+const API_URL = `${API_BASE_URL}/api/auth`;
 
 export const register = async (userData) => {
   const res = await axios.post(`${API_URL}/register`, userData);

@@ -33,15 +33,29 @@ app = FastAPI()
 # 🔥 THIS LINE WAS MISSING
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
+import os
+
 # --- CORS ---
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://skill-sync-sable.vercel.app",
 ]
+
+env_frontend = os.getenv("FRONTEND_URL")
+if env_frontend and env_frontend not in origins:
+    origins.append(env_frontend.rstrip("/"))
+
+env_allowed = os.getenv("ALLOWED_ORIGINS")
+if env_allowed:
+    for o in env_allowed.split(","):
+        clean_o = o.strip().rstrip("/")
+        if clean_o and clean_o not in origins:
+            origins.append(clean_o)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://your-backend-name.onrender.com"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

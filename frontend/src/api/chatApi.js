@@ -1,7 +1,5 @@
 
-const API_BASE_URL = (
-  import.meta.env.VITE_API_URL || "http://localhost:8000"
-).replace(/\/+$/, "");
+import { API_BASE_URL } from "./apiConfig";
 
 const WS_BASE_URL = API_BASE_URL.replace(/^https:/, "wss:").replace(
   /^http:/,

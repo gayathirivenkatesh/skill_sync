@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { Loader2, Bot, User } from "lucide-react";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)careercoach";
+const API_BASE = `${API_BASE_URL}/api/careercoach`;
 
 /* ================= CAREER COACH THEME =================
    Warm • Professional • Mentor-like • Student Connected

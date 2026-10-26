@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_BASE_URL } from "./apiConfig";
 
-const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)/projects";
+const API = `${API_BASE_URL}/api/projects`;
 
 export const getProjects = async () => {
   const res = await axios.get(API + "/");

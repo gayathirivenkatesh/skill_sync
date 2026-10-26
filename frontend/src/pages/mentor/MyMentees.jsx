@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { AuthContext } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+const API = `${API_BASE_URL}/api`;
 
 const MyMentees = () => {
   const { token } = useContext(AuthContext);

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
 import { AuthContext } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../api/apiConfig";
 
 const CareerPathways = () => {
   const { token } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const CareerPathways = () => {
 
   // Axios instance with token
   const axiosInstance = axios.create({
-    baseURL: "fetch(`${import.meta.env.VITE_API_URL}/api/...`)career-pathways",
+    baseURL: `${API_BASE_URL}/api/career-pathways`,
     headers: { Authorization: `Bearer ${token}` },
   });
 

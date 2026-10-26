@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)learning";
+const API_BASE = `${API_BASE_URL}/api/learning`;
 
 /* ================= LEARNING HUB THEME ================= */
 const theme = {

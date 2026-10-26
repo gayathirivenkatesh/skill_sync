@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { Send, BrainCircuit, Trophy } from "lucide-react";
+import { API_BASE_URL } from "../../api/apiConfig";
 
 
 const aiTheme = {
@@ -29,7 +30,7 @@ export default function AiLearningSession() {
   const [messages, setMessages] = useState([]);
 
   const token = localStorage.getItem("token");
-  const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+  const API_BASE = `${API_BASE_URL}/api`;
 
   // ---------- Check for existing session ----------
   useEffect(() => {

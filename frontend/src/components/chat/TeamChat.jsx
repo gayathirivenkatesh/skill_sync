@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+const API_BASE = `${API_BASE_URL}/api`;
 
 const axiosInstance = axios.create({
   baseURL: API_BASE,

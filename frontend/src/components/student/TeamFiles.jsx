@@ -2,8 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { UploadCloud, FileText, Trash2, Lock } from "lucide-react";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)/team-files";
+const API = `${API_BASE_URL}/api/team-files`;
 
 const TeamFiles = ({ teamId, isLocked, isCreator, userId, onFilesUpdate }) => {
   const { token } = useContext(AuthContext);

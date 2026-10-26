@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { API_BASE_URL } from "../../api/apiConfig";
 
 
 /* ================= STUDENT GAMIFICATION THEME =================
@@ -33,7 +34,7 @@ const Gamification = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/ai/gamification", {
+        const res = await fetch(`${API_BASE_URL}/api/ai/gamification`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to load gamification data");

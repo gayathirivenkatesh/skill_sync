@@ -10,8 +10,9 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+const API_BASE = `${API_BASE_URL}/api`;
 
 const MentorDashboard = () => {
   const { token } = useContext(AuthContext);

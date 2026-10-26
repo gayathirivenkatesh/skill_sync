@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import axios from "axios";
+import { API_BASE_URL } from "../../api/apiConfig";
 
 const SkillAndProjectMatcher = () => {
   const [text, setText] = useState("");
@@ -18,7 +19,7 @@ const SkillAndProjectMatcher = () => {
     try {
       setLoadingSkills(true);
       const res = await axios.post(
-        "fetch(`${import.meta.env.VITE_API_URL}/api/...`)skills/extract_skills",
+        `${API_BASE_URL}/api/skills/extract_skills`,
         { text },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -39,7 +40,7 @@ const SkillAndProjectMatcher = () => {
       formData.append("file", file);
 
       const res = await axios.post(
-        "fetch(`${import.meta.env.VITE_API_URL}/api/...`)skills/resume-parser",
+        `${API_BASE_URL}/api/skills/resume-parser`,
         formData,
         {
           headers: {
@@ -64,7 +65,7 @@ const SkillAndProjectMatcher = () => {
       try {
         setLoadingProjects(true);
         const res = await axios.post(
-          "fetch(`${import.meta.env.VITE_API_URL}/api/...`)projects/recommendations",
+          `${API_BASE_URL}/api/projects/recommendations`,
           { user_skills: skills },
           { headers: { Authorization: `Bearer ${token}` } }
         );

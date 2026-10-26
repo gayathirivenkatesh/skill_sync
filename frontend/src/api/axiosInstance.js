@@ -1,9 +1,8 @@
 import axios from "axios";
-
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)"; // Your FastAPI backend
+import { API_BASE_URL } from "./apiConfig";
 
 const axiosInstance = axios.create({
-  baseURL: API_BASE,
+  baseURL: `${API_BASE_URL}/api`,
   headers: {
     "Content-Type": "application/json",
   },

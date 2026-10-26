@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FiPlus, FiBookOpen, FiTrash2 } from "react-icons/fi";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-
-const API = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)mentor/research";
+const API = `${API_BASE_URL}/api/mentor/research`;
 
 const MentorResearch = () => {
   const token = localStorage.getItem("token");

@@ -9,8 +9,9 @@ import RubricView from "../../components/student/RubricView";
 import PeerAppreciation from "../../components/student/PeerAppreciation";
 import PlagiarismStatus from "../../components/student/PlagiarismStatus";
 import ProjectOverview from "../../components/student/ProjectOverview";
+import { API_BASE_URL } from "../../api/apiConfig";
 
-const API_BASE = "fetch(`${import.meta.env.VITE_API_URL}/api/...`)";
+const API_BASE = `${API_BASE_URL}/api`;
 
 /* ================= TEAM SPACE THEME ================= */
 const teamTheme = {
